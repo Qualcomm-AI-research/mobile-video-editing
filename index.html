@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+  <!-- Replace the content tag with appropriate information -->
+  <meta name="description" content="DESCRIPTION META TAG">
+  <meta property="og:title" content="SOCIAL MEDIA TITLE TAG"/>
+  <meta property="og:description" content="SOCIAL MEDIA DESCRIPTION TAG TAG"/>
+  <meta property="og:url" content="URL OF THE WEBSITE"/>
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+  <meta property="og:image" content="static/image/your_banner_image.png" />
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+
+
+  <meta name="twitter:title" content="TWITTER BANNER TITLE META TAG">
+  <meta name="twitter:description" content="TWITTER BANNER DESCRIPTION META TAG">
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Keywords for your paper to be indexed by-->
+  <meta name="keywords" content="KEYWORDS SHOULD BE PLACED HERE">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <title>MoViE: Accelerating Diffusion-Based Mobile Video Editing</title>
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+  rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+
+          <h1 class="title is-1 publication-title">MoViE: <u>Mo</u>bile Diffusion for <u>Vi</u>deo <u>E</u>diting</h1>
+          
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><a href="https://nl.linkedin.com/in/adil-karjauv">Adil Karjauv*</a>,</span>
+            <span class="author-block"><a href="https://nl.linkedin.com/in/noor-fathima">Noor Fathima*</a>,</span>
+            <span class="author-block"><a href="https://nl.linkedin.com/in/ioannis-lelekas-609bb5151">Ioannis Lelekas</a>,</span>
+            <span class="author-block"><a href="https://www.porikli.com/">Fatih Porikli</a>,</span>
+            <span class="author-block"><a href="https://aghodrati.github.io/">Amir Ghodrati</a>,</span>
+            <span class="author-block"><a href="https://habibian.github.io/">Amirhossein Habibian</a></span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <a href="https://www.qualcomm.com/research/artificial-intelligence/ai-research/">Qualcomm AI Research</a>
+            <h2>(*Equal contribution)</h2>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2412.06578" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+
+              <span class="link-block">
+                <a href="mailto:ahabibia@qti.qualcomm.com" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <svg class="svg-inline--fa fa-github fa-w-16" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="github" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" data-fa-i2svg=""><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg><!-- <i class="fab fa-github"></i> Font Awesome fontawesome.com -->
+                  </span>
+                  <span>Code</span>
+                </a>
+              </span>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>  
+</section>
+
+<!-- Video Teaser -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">      
+      <div class="videos-container" style="display: flex; justify-content: space-around; align-items: center; gap: 20px;">
+        <div class="video-item" style="text-align: center;">
+          <h2 class="title is-3" style="color: red;">12 FPS Editing on Mobile!</h2>
+          <video poster="" id="video1" autoplay controls muted loop style="width: 100%; max-width: 1500px;">
+            <source src="static/videos/ours/teaser.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End video teaser -->
+
+<!-- Paper abstract -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Recent progress in diffusion-based video editing techniques has shown remarkable potential and is being increasingly utilized in practical applications. 
+            However, these methods remain prohibitively expensive and particularly challenging to deploy on mobile devices. 
+            In this study, we introduce a series of optimizations that render mobile video editing feasible. 
+            Building upon the existing image editing model, we first optimize its architecture and incorporate a lightweight autoencoder. 
+            Subsequently, we extend classifier-free guidance distillation to multiple modalities, resulting in a threefold on-device speedup. 
+            Finally, we reduce the number of sampling steps to one by introducing a novel adversarial distillation scheme which preserves the controllability of the editing process. 
+            Collectively, these optimizations enable video editing at an impressive <b>12</b> frames per second on mobile devices, while maintaining high editing quality.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>  
+</section>
+<!-- End paper abstract -->
+
+<!-- Paper method -->
+<section class="section hero">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Method</h2>
+        <div class="content has-text-justified">
+          <p>In this work, we introduce several optimizations to accelerate diffusion-based video editing:</p>
+
+          <ol>
+            <li><strong>Architectural Enhancement</strong>: We enhance the denoising UNet by removing self-attention and cross-attention at the highest resolutions, which are the most computationally expensive layers. 
+              We also replace the standard autoencoder with a lightweight version called “Tiny AutoEncoder for Stable Diffusion” (TAESD). These changes result in the Mobile-Pix2Pix model, which is more efficient.</li>
+
+            <li><strong>Multimodal Guidance Distillation</strong>: We perform a novel distillation process that combines classifier-free guidance (CFG) with text and image inputs into a single forward pass per diffusion step, 
+              achieving a threefold increase in inference speed. Typically, CFG with several modalities requires at least three forward passes per step, but our method consolidates this into one, maintaining quality and control. 
+              This is done by modifying ResNet blocks to accept guidance scales as embeddings, allowing efficient processing. Details are shown in Figure 2 below.</li>
+
+            <li><strong>Adversarial Distillation</strong>: We optimize the number of diffusion steps to one through a novel adversarial distillation procedure. This method distills a multi-step model into a single-step model 
+              while preserving the controllability of edits. The student model, initialized from the teacher model, uses a discriminator to distinguish real from fake samples, enhancing its ability to produce high-quality, controlled edits. Details are shown in Figure 3 below.</li>
+          </ol>
+
+          <p>These optimizations enable <b>12</b> frames per second video editing on mobile devices, marking a significant milestone towards real-time text-guided video editing on mobile platforms.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="columns is-centered" style="display: flex; justify-content: center; align-items: center;">
+    <div class="column is-6 is-centered" style="display: flex; justify-content: center;">
+      <figure class="image">
+        <img src="static/images/figures_2_3.png" style="width: 100%; height: auto;">
+      </figure>
+    </div>
+  </div>  
+
+  <div class="columns is-centered" style="display: flex; justify-content: center; align-items: center;">
+    <div class="column is-6 is-centered" style="display: flex; justify-content: center;">
+      <figure class="image">
+        <img src="static/images/table_1.png" style="width: 100%; height: auto;">
+      </figure>
+    </div>
+  </div>  
+
+</section>
+<!-- End paper method -->
+
+<!-- Video -->
+<section class="hero is-small is-light">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3">Qualitative Results on Faces Dataset</h2>
+      
+      <!-- First row of videos -->
+      <div class="videos-container" style="display: flex; justify-content: space-around; align-items: center; gap: 20px;">
+        <div class="video-item" style="text-align: center;">
+          <p style="color: red; font-size: 24px">Input</p>
+          <video poster="" id="video1" autoplay controls muted loop style="width: 100%; max-width: 500px;">
+            <source src="static/videos/input/face_01.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-item" style="text-align: center;">
+          <p style="color: red; font-size: 24px">"In chinese ink style"</p>
+          <video poster="" id="video2" autoplay controls muted loop style="width: 100%; max-width: 500px;">
+            <source src="static/videos/ours/face_01_chinese_ink.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-item" style="text-align: center;">
+          <p style="color: red; font-size: 24px">"In caricature style"</p>
+          <video poster="" id="video3" autoplay controls muted loop style="width: 100%; max-width: 500px;">
+            <source src="static/videos/ours/face_01_caricature.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-item" style="text-align: center;">
+          <p style="color: red; font-size: 24px">"In pop art style"</p>
+          <video poster="" id="video4" autoplay controls muted loop style="width: 100%; max-width: 500px;">
+            <source src="static/videos/ours/face_01_pop_art.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      
+      <!-- Second row of videos -->
+      <div class="videos-container" style="display: flex; justify-content: space-around; align-items: center; gap: 20px; margin-top: 20px;">
+        <div class="video-item" style="text-align: center;">
+          <p style="color: red; font-size: 24px;">Input</p>
+          <video poster="" id="video5" autoplay controls muted loop style="width: 100%; max-width: 500px;">
+            <source src="static/videos/input/face_02.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-item" style="text-align: center;">
+          <p style="color: red; font-size: 24px;">"Turn him into silver surfer"</p>
+          <video poster="" id="video6" autoplay controls muted loop style="width: 100%; max-width: 500px;">
+            <source src="static/videos/ours/face_02_silver_surfer.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-item" style="text-align: center;">
+          <p style="color: red; font-size: 24px;">"Add wrinkles"</p>
+          <video poster="" id="video7" autoplay controls muted loop style="width: 100%; max-width: 500px;">
+            <source src="static/videos/ours/face_02_wrinkles.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-item" style="text-align: center;">
+          <p style="color: red; font-size: 24px;">"Add sunglasses"</p>
+          <video poster="" id="video8" autoplay controls muted loop style="width: 100%; max-width: 500px;">
+            <source src="static/videos/ours/face_02_sunglasses.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+
+      <!-- Third row of videos -->
+      <div class="videos-container" style="display: flex; justify-content: space-around; align-items: center; gap: 20px; margin-top: 20px;">
+        <div class="video-item" style="text-align: center;">
+          <p style="color: red; font-size: 24px;">Input</p>
+          <video poster="" id="video9" autoplay controls muted loop style="width: 100%; max-width: 500px;">
+            <source src="static/videos/input/face_03.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-item" style="text-align: center;">
+          <p style="color: red; font-size: 24px;">"In pixar 3d style"</p>
+          <video poster="" id="video10" autoplay controls muted loop style="width: 100%; max-width: 500px;">
+            <source src="static/videos/ours/face_03_pixar.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-item" style="text-align: center;">
+          <p style="color: red; font-size: 24px;">"Turn him into vampire"</p>
+          <video poster="" id="video11" autoplay controls muted loop style="width: 100%; max-width: 500px;">
+            <source src="static/videos/ours/face_03_vampire.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-item" style="text-align: center;">
+          <p style="color: red; font-size: 24px;">"In pencil drawing style"</p>
+          <video poster="" id="video12" autoplay controls muted loop style="width: 100%; max-width: 500px;">
+            <source src="static/videos/ours/face_03_pencil.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      
+      <!-- Fourth row of videos -->
+      <div class="videos-container" style="display: flex; justify-content: space-around; align-items: center; gap: 20px; margin-top: 20px;">
+        <div class="video-item" style="text-align: center;">
+          <p style="color: red; font-size: 24px;">Input</p>
+          <video poster="" id="video9" autoplay controls muted loop style="width: 100%; max-width: 500px;">
+            <source src="static/videos/input/face_04.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-item" style="text-align: center;">
+          <p style="color: red; font-size: 24px;">"Make him bronze"</p>
+          <video poster="" id="video10" autoplay controls muted loop style="width: 100%; max-width: 500px;">
+            <source src="static/videos/ours/face_04_bronze.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-item" style="text-align: center;">
+          <p style="color: red; font-size: 24px;">"Turn him into hulk"</p>
+          <video poster="" id="video11" autoplay controls muted loop style="width: 100%; max-width: 500px;">
+            <source src="static/videos/ours/face_04_hulk.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-item" style="text-align: center;">
+          <p style="color: red; font-size: 24px;">"In Minecraft style"</p>
+          <video poster="" id="video12" autoplay controls muted loop style="width: 100%; max-width: 500px;">
+            <source src="static/videos/ours/face_04_minecraft.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</section>
+<!-- End video -->
+
+<!-- Video -->
+<section class="hero is-small is-light">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3">Comparison to the Base Model on Faces Dataset</h2>
+      
+      <!-- First row of videos -->
+      <div class="videos-container" style="display: flex; justify-content: space-around; align-items: center; gap: 20px;">
+        <div class="video-item" style="text-align: center;">
+          <h3 class="title is-4">Input Video</h3>
+          <p style="color: red; font-size: 24px">Input</p>
+          <video poster="" id="video1" autoplay controls muted loop style="width: 100%; max-width: 500px;">
+            <source src="static/videos/input/face_01.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-item" style="text-align: center;">
+          <h3 class="title is-4">Base Model</h3>
+          <p style="color: red; font-size: 24px">"In Monet style"</p>
+          <video poster="" id="video2" autoplay controls muted loop style="width: 100%; max-width: 500px;">
+            <source src="static/videos/base_model/face_01_monet.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-item" style="text-align: center;">
+          <h3 class="title is-4">MoViE</h3>
+          <p style="color: red; font-size: 24px">"In Monet style"</p>
+          <video poster="" id="video3" autoplay controls muted loop style="width: 100%; max-width: 500px;">
+            <source src="static/videos/ours/face_01_monet.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      
+      <!-- Second row of videos -->
+      <div class="videos-container" style="display: flex; justify-content: space-around; align-items: center; gap: 20px; margin-top: 20px;">
+        <div class="video-item" style="text-align: center;">
+          <p style="color: red; font-size: 24px;">Input</p>
+          <video poster="" id="video4" autoplay controls muted loop style="width: 100%; max-width: 500px;">
+            <source src="static/videos/input/face_02.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-item" style="text-align: center;">
+          <p style="color: red; font-size: 24px;">"Make him wooden"</p>
+          <video poster="" id="video5" autoplay controls muted loop style="width: 100%; max-width: 500px;">
+            <source src="static/videos/base_model/face_02_wooden.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-item" style="text-align: center;">
+          <p style="color: red; font-size: 24px;">"Make him wooden"</p>
+          <video poster="" id="video6" autoplay controls muted loop style="width: 100%; max-width: 500px;">
+            <source src="static/videos/ours/face_02_wooden.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- End video -->
+
+<!-- Video -->
+<section class="hero is-small is-light">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3">Comparison to SOTA Methods on DAVIS</h2>
+      
+      <!-- First row of videos -->
+      <div class="videos-container" style="display: flex; justify-content: space-around; align-items: center; gap: 1px;">
+        <div class="video-item" style="text-align: center;">
+          <h3 class="title is-4">Input Video</h3>
+          <p style="color: red; font-size: 16px">Input</p>
+          <video poster="" id="video1" autoplay controls muted loop style="width: 100%; max-width: 500px;">
+            <source src="static/videos/input/car-turn.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-item" style="text-align: center;">
+          <h3 class="title is-4">InsV2V</h3>
+          <p style="color: red; font-size: 16px">"Make it desert"</p>
+          <video poster="" id="video2" autoplay controls muted loop style="width: 100%; max-width: 500px;">
+            <source src="static/videos/insv2v/car_turn_desert.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-item" style="text-align: center;">
+          <h3 class="title is-4">Rerender-a-Video</h3>
+          <p style="color: red; font-size: 16px">"Make it desert"</p>
+          <video poster="" id="video3" autoplay controls muted loop style="width: 100%; max-width: 500px;">
+            <source src="static/videos/rerender_a_video/car_turn_desert.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-item" style="text-align: center;">
+          <h3 class="title is-4">TokenFlow</h3>
+          <p style="color: red; font-size: 16px">"Make it desert"</p>
+          <video poster="" id="video4" autoplay controls muted loop style="width: 100%; max-width: 500px;">
+            <source src="static/videos/tokenflow/car_turn_desert.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-item" style="text-align: center;">
+          <h3 class="title is-4">MoViE</h3>
+          <p style="color: red; font-size: 16px">"Make it desert"</p>
+          <video poster="" id="video5" autoplay controls muted loop style="width: 100%; max-width: 500px;">
+            <source src="static/videos/ours/car_turn_desert.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      
+      <!-- Second row of videos -->
+      <div class="videos-container" style="display: flex; justify-content: space-around; align-items: center; gap: 1px;">
+        <div class="video-item" style="text-align: center;">
+          <p style="color: red; font-size: 16px">Input</p>
+          <video poster="" id="video1" autoplay controls muted loop style="width: 100%; max-width: 500px;">
+            <source src="static/videos/input/blackswan.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-item" style="text-align: center;">
+          <p style="color: red; font-size: 16px">"Turn the swan into flamingo"</p>
+          <video poster="" id="video2" autoplay controls muted loop style="width: 100%; max-width: 500px;">
+            <source src="static/videos/insv2v/blackswan_flamingo.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-item" style="text-align: center;">
+          <p style="color: red; font-size: 16px">"Turn the swan into flamingo"</p>
+          <video poster="" id="video3" autoplay controls muted loop style="width: 100%; max-width: 500px;">
+            <source src="static/videos/rerender_a_video/blackswan_flamingo.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-item" style="text-align: center;">
+          <p style="color: red; font-size: 16px">"Turn the swan into flamingo"</p>
+          <video poster="" id="video4" autoplay controls muted loop style="width: 100%; max-width: 500px;">
+            <source src="static/videos/tokenflow/blackswan_flamingo.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-item" style="text-align: center;">
+          <p style="color: red; font-size: 16px">"Turn the swan into flamingo"</p>
+          <video poster="" id="video5" autoplay controls muted loop style="width: 100%; max-width: 500px;">
+            <source src="static/videos/ours/blackswan_flamingo.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+
+      <!-- Third row of videos -->
+      <div class="videos-container" style="display: flex; justify-content: space-around; align-items: center; gap: 1px;">
+        <div class="video-item" style="text-align: center;">
+          <p style="color: red; font-size: 16px">Input</p>
+          <video poster="" id="video1" autoplay controls muted loop style="width: 100%; max-width: 500px;">
+            <source src="static/videos/input/hike.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-item" style="text-align: center;">
+          <p style="color: red; font-size: 16px">"Add grass"</p>
+          <video poster="" id="video2" autoplay controls muted loop style="width: 100%; max-width: 500px;">
+            <source src="static/videos/insv2v/hike_grass.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-item" style="text-align: center;">
+          <p style="color: red; font-size: 16px">"Add grass"</p>
+          <video poster="" id="video3" autoplay controls muted loop style="width: 100%; max-width: 500px;">
+            <source src="static/videos/rerender_a_video/hike_grass.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-item" style="text-align: center;">
+          <p style="color: red; font-size: 16px">"Add grass"</p>
+          <video poster="" id="video4" autoplay controls muted loop style="width: 100%; max-width: 500px;">
+            <source src="static/videos/tokenflow/hike_grass.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-item" style="text-align: center;">
+          <p style="color: red; font-size: 16px">"Add grass"</p>
+          <video poster="" id="video5" autoplay controls muted loop style="width: 100%; max-width: 500px;">
+            <source src="static/videos/ours/hike_grass.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+
+      <!-- Fourth row of videos -->
+      <div class="videos-container" style="display: flex; justify-content: space-around; align-items: center; gap: 1px;">
+        <div class="video-item" style="text-align: center;">
+          <p style="color: red; font-size: 16px">Input</p>
+          <video poster="" id="video1" autoplay controls muted loop style="width: 100%; max-width: 500px;">
+            <source src="static/videos/input/boat.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-item" style="text-align: center;">
+          <p style="color: red; font-size: 16px">"Add snow"</p>
+          <video poster="" id="video2" autoplay controls muted loop style="width: 100%; max-width: 500px;">
+            <source src="static/videos/insv2v/boat_snow.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-item" style="text-align: center;">
+          <p style="color: red; font-size: 16px">"Add snow"</p>
+          <video poster="" id="video3" autoplay controls muted loop style="width: 100%; max-width: 500px;">
+            <source src="static/videos/rerender_a_video/boat_snow.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-item" style="text-align: center;">
+          <p style="color: red; font-size: 16px">"Add snow"</p>
+          <video poster="" id="video4" autoplay controls muted loop style="width: 100%; max-width: 500px;">
+            <source src="static/videos/tokenflow/boat_snow.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-item" style="text-align: center;">
+          <p style="color: red; font-size: 16px">"Add snow"</p>
+          <video poster="" id="video5" autoplay controls muted loop style="width: 100%; max-width: 500px;">
+            <source src="static/videos/ours/boat_snow.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+
+      <!-- Fifth row of videos -->
+      <div class="videos-container" style="display: flex; justify-content: space-around; align-items: center; gap: 1px;">
+        <div class="video-item" style="text-align: center;">
+          <p style="color: red; font-size: 16px">Input</p>
+          <video poster="" id="video1" autoplay controls muted loop style="width: 100%; max-width: 500px;">
+            <source src="static/videos/input/breakdance-flare.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-item" style="text-align: center;">
+          <p style="color: red; font-size: 16px">"Make him zombie"</p>
+          <video poster="" id="video2" autoplay controls muted loop style="width: 100%; max-width: 500px;">
+            <source src="static/videos/insv2v/breakdance_zombie.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-item" style="text-align: center;">
+          <p style="color: red; font-size: 16px">"Make him zombie"</p>
+          <video poster="" id="video3" autoplay controls muted loop style="width: 100%; max-width: 500px;">
+            <source src="static/videos/rerender_a_video/breakdance_zombie.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-item" style="text-align: center;">
+          <p style="color: red; font-size: 16px">"Make him zombie"</p>
+          <video poster="" id="video4" autoplay controls muted loop style="width: 100%; max-width: 500px;">
+            <source src="static/videos/tokenflow/breakdance_zombie.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-item" style="text-align: center;">
+          <p style="color: red; font-size: 16px">"Make him zombie"</p>
+          <video poster="" id="video5" autoplay controls muted loop style="width: 100%; max-width: 500px;">
+            <source src="static/videos/ours/breakdance_zombie.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+
+      <!-- Sixth row of videos -->
+      <div class="videos-container" style="display: flex; justify-content: space-around; align-items: center; gap: 1px;">
+        <div class="video-item" style="text-align: center;">
+          <p style="color: red; font-size: 16px">Input</p>
+          <video poster="" id="video1" autoplay controls muted loop style="width: 100%; max-width: 500px;">
+            <source src="static/videos/input/tennis.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-item" style="text-align: center;">
+          <p style="color: red; font-size: 16px">"Make him yeti"</p>
+          <video poster="" id="video2" autoplay controls muted loop style="width: 100%; max-width: 500px;">
+            <source src="static/videos/insv2v/tennis_yeti.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-item" style="text-align: center;">
+          <p style="color: red; font-size: 16px">"Make him yeti"</p>
+          <video poster="" id="video3" autoplay controls muted loop style="width: 100%; max-width: 500px;">
+            <source src="static/videos/rerender_a_video/tennis_yeti.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-item" style="text-align: center;">
+          <p style="color: red; font-size: 16px">"Make him yeti"</p>
+          <video poster="" id="video4" autoplay controls muted loop style="width: 100%; max-width: 500px;">
+            <source src="static/videos/tokenflow/tennis_yeti.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-item" style="text-align: center;">
+          <p style="color: red; font-size: 16px">"Make him yeti"</p>
+          <video poster="" id="video5" autoplay controls muted loop style="width: 100%; max-width: 500px;">
+            <source src="static/videos/ours/tennis_yeti.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+
+      <!-- Seventh row of videos -->
+      <div class="videos-container" style="display: flex; justify-content: space-around; align-items: center; gap: 1px;">
+        <div class="video-item" style="text-align: center;">
+          <p style="color: red; font-size: 16px">Input</p>
+          <video poster="" id="video1" autoplay controls muted loop style="width: 100%; max-width: 500px;">
+            <source src="static/videos/input/lucia.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-item" style="text-align: center;">
+          <p style="color: red; font-size: 16px">"Make her hair blonde"</p>
+          <video poster="" id="video2" autoplay controls muted loop style="width: 100%; max-width: 500px;">
+            <source src="static/videos/insv2v/lucia_blonde.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-item" style="text-align: center;">
+          <p style="color: red; font-size: 16px">"Make her hair blonde"</p>
+          <video poster="" id="video3" autoplay controls muted loop style="width: 100%; max-width: 500px;">
+            <source src="static/videos/rerender_a_video/lucia_blonde.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-item" style="text-align: center;">
+          <p style="color: red; font-size: 16px">"Make her hair blonde"</p>
+          <video poster="" id="video4" autoplay controls muted loop style="width: 100%; max-width: 500px;">
+            <source src="static/videos/tokenflow/lucia_blonde.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-item" style="text-align: center;">
+          <p style="color: red; font-size: 16px">"Make her hair blonde"</p>
+          <video poster="" id="video5" autoplay controls muted loop style="width: 100%; max-width: 500px;">
+            <source src="static/videos/ours/lucia_blonde.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+
+      <!-- Eighths row of videos -->
+      <div class="videos-container" style="display: flex; justify-content: space-around; align-items: center; gap: 1px;">
+        <div class="video-item" style="text-align: center;">
+          <p style="color: red; font-size: 16px">Input</p>
+          <video poster="" id="video1" autoplay controls muted loop style="width: 100%; max-width: 500px;">
+            <source src="static/videos/input/kite-surf.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-item" style="text-align: center;">
+          <p style="color: red; font-size: 16px">"Add fire"</p>
+          <video poster="" id="video2" autoplay controls muted loop style="width: 100%; max-width: 500px;">
+            <source src="static/videos/insv2v/kite_surf_fire.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-item" style="text-align: center;">
+          <p style="color: red; font-size: 16px">"Add fire"</p>
+          <video poster="" id="video3" autoplay controls muted loop style="width: 100%; max-width: 500px;">
+            <source src="static/videos/rerender_a_video/kite_surf_fire.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-item" style="text-align: center;">
+          <p style="color: red; font-size: 16px">"Add fire"</p>
+          <video poster="" id="video4" autoplay controls muted loop style="width: 100%; max-width: 500px;">
+            <source src="static/videos/tokenflow/kite_surf_fire.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-item" style="text-align: center;">
+          <p style="color: red; font-size: 16px">"Add fire"</p>
+          <video poster="" id="video5" autoplay controls muted loop style="width: 100%; max-width: 500px;">
+            <source src="static/videos/ours/kite_surf_fire.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- End video -->
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+
+          <p>
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+            You are free to borrow the template of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
